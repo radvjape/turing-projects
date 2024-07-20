@@ -7,7 +7,7 @@ def main():
     change_board(board, white_piece, "w") #print on the board piece
 
     black_pieces = get_black_pieces(board) #get pieces and place
-    for black_piece in black_pieces: #print all the piece on the board
+    for black_piece in black_pieces:
         change_board(board, black_piece, "b") #print all the piece on the board
 
     #check if white can take any black piece/pieces
@@ -15,15 +15,13 @@ def main():
     
     print_board(board, white_piece_can_take)
 
-
+    #print out the board with X marking pieces white can take
+        #if nothing can be taken print out text "White piece can`t take any pieces"
     if white_piece_can_take:
         print("The possible capture pieces marked with 'X'.")
     else:
         print("Sorry, no piece can be capture by white piece.")
 
-    #print out the board with X marking pieces white can take
-        #if nothing can be taken print out text "White piece can`t take any pieces"
-#don`t work
 def new_board():
    return [
         ["  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "],
@@ -83,7 +81,6 @@ def get_black_pieces(board):
 
         #spliting input
         try:
-            # splitting input
             b_piece, place = black_pieces_place.split(" ")
         except ValueError:
             print("Invalid format. Please make sure that you are entering the piece and location in the format 'piece place' (e.g. 'king b3').")
@@ -143,7 +140,7 @@ def print_board(board, white_piece_can_take):
 
     # Print each row of the board
     for row in range(8):
-        row_line = str(8 - row)  # Row labels (8 to 1)
+        row_line = str(8 - row)
         for col in range(8):
             cell = board[row][col]
             row_line += f'|{cell}'
